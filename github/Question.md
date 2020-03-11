@@ -8,7 +8,7 @@ pidos   https://github.com/smallchichen/pidos.git (fetch)
 pidos   https://github.com/smallchichen/pidos.git (push)
 </pre>
 <pre>
- git pull pidos master
+git pull pidos master
 remote: Enumerating objects: 7, done.
 remote: Counting objects: 100% (7/7), done.
 remote: Compressing objects: 100% (3/3), done.
