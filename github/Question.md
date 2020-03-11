@@ -3,6 +3,13 @@
 ## 遇到問題
 * 因為本地端沒有指定跟哪個github連結，導致無法git pull
 <pre>
+主要原因：git clone https://github.com/smallchichen/pidos.git
+之後必須移動至那個專案的資料夾位置 cd pidos
+然後才能 git pull
+</pre>
+
+## 錯誤解答
+<pre>
 git remote add pidos https://github.com/smallchichen/pidos.git
 pidos   https://github.com/smallchichen/pidos.git (fetch)
 pidos   https://github.com/smallchichen/pidos.git (push)
