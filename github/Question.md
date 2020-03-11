@@ -8,6 +8,34 @@
 然後才能 git pull
 </pre>
 
+## push
+<pre>
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   HelloWorld.class
+</pre>
+<pre>
+$ git commit -m "add HelloWorld.class"
+[master e390648] add HelloWorld.class
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Java/HelloWorld.class
+</pre>
+<pre>
+$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 721 bytes | 240.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/smallchichen/pidos.git
+   30a0b5d..e390648  master -> master
+</pre>
+
 ## 錯誤解答
 <pre>
 git remote add pidos https://github.com/smallchichen/pidos.git
