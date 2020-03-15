@@ -82,6 +82,14 @@ public class FirstServlet extends HttpServlet {
 		// 由客戶端瀏覽器讀取該文件的更新時間
 		out.println("	<script>document.write('本頁面最後更新時間：' + document.lastModified + '<br />'); </script>");
 		out.println("	<script>document.write('本頁面URL：' + location + '<br/>' ); </script>");
+		out.println("	<script>document.write('返回當前頁面的href（URL）：' + window.location.href + '<br/>' ); </script>");
+		out.println("	<script>document.write('屬性返回（當前頁面的）Internet主機的名稱：' + window.location.hostname + '<br/>' ); </script>");
+		out.println("	<script>document.write('屬性返回當前頁面的路徑名：' + window.location.pathname + '<br/>' ); </script>");
+		out.println("	<script>document.write('屬性返回頁面的Web協議：' + window.location.protocol + '<br/>' ); </script>");
+		out.println("	<script>document.write('屬性返回（當前頁面的）Internet主機端口號：' + window.location.port + '<br/>' ); </script>");
+		
+		out.println("	<input type=\"button\" value=\"Load new document\" onclick=\"newDoc()\"> ");	
+		out.println("	<script>function newDoc() { window.location.assign(\"https://www.w3schools.com\") }</script>");
 
 		out.println("  </BODY>");
 		out.println("</HTML>");
