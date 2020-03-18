@@ -8,7 +8,7 @@ Soft_job in Taipei
 position：Backend engineer in four month
 </pre>
 
-## skill
+## skill_Backend
 * 一、DataBase
 <pre>
 1.Oracle
@@ -31,6 +31,13 @@ position：Backend engineer in four month
 * 五、Web
 <pre>
 1.Testlink-1.9.19
+</pre>
+
+## skill_Frontend
+<pre>
+1.Htm5
+2.Css3
+3.JavaScript
 </pre>
 ## training from 資策會DA102
 2019.4.14~2019.9.26
