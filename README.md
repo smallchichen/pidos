@@ -32,6 +32,10 @@ position：Backend engineer in four month
 <pre>
 1.Testlink-1.9.19
 </pre>
+* 六、script
+<pre>
+1.Shell(.sh)：SQL_Compare_data_between_million_tenMillion
+</pre>
 
 ## skill_Frontend
 <pre>
