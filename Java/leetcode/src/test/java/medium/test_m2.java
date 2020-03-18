@@ -19,7 +19,7 @@ import org.junit.runners.Parameterized.Parameters;
 import com.google.gson.Gson;
 
 @RunWith(Parameterized.class)
-public class test_m1 {
+public class test_m2 {
 
 	private m2_AddTwoNumbers test;
 
@@ -27,7 +27,7 @@ public class test_m1 {
 	private ListNode input2;
 	private ListNode expectedOutput;
 
-	public test_m1(ListNode input1, ListNode input2, ListNode expectedOutput) {
+	public test_m2(ListNode input1, ListNode input2, ListNode expectedOutput) {
 		super();
 		this.input1 = input1;
 		this.input2 = input2;
