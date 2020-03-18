@@ -34,7 +34,13 @@ position：Backend engineer in four month
 </pre>
 * 六、script
 <pre>
-1.Shell(.sh)：SQL_Compare_data_between_million_tenMillion
+1.Shell(.sh)：SQL_Compare_data_between_million_tenMillion_notByEclipse
+</pre>
+* 七、Ide
+<pre>
+1.Eclipse
+2.Notepadd++
+3.Sublime3
 </pre>
 
 ## skill_Frontend
