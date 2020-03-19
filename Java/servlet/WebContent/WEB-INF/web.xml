@@ -12,6 +12,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+
 	<servlet>
 		<servlet-name>FirstServlet</servlet-name>
 		<servlet-class>com.helloweenvsfei.servlet.FirstServlet</servlet-class>
@@ -42,5 +43,26 @@
 		<servlet-name>IdentityServlet</servlet-name>
 		<url-pattern>/servlet/IdentityServlet</url-pattern>
 	</servlet-mapping>
-	
+
+	<servlet>
+		<servlet-name>InitParamServlet</servlet-name>
+		<servlet-class>com.helloweenvsfei.servlet.InitParamServlet</servlet-class>
+		<init-param>
+			<param-name>helloween</param-name>
+			<param-value>password</param-value>
+		</init-param>
+		<init-param>
+			<param-name>admin</param-name>
+			<param-value>admin</param-value>
+		</init-param>
+		<init-param>
+			<param-name>babyface</param-name>
+			<param-value>babyface</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitParamServlet</servlet-name>
+		<url-pattern>/servlet/InitParamServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>
