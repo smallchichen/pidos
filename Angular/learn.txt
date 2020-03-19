@@ -1,0 +1,344 @@
+https://ithelp.ithome.com.tw/articles/10202021
+[Angular 深入淺出三十天] Day 00 - 前言
+位邦友大家好，我是Leo，這是我第一次參賽。
+
+在這三十天裡，我會用比較淺白的方式來跟大家分享我目前所知道的 Angular。
+
+本系列文章適合：
+
+寫過一些前端，但只接觸過基本的 HTML、CSS、JavaScript、jQuery 部分。
+正在或曾經用 Angular 開發過。
+在這一方面已經是非常厲害的前輩。
+謎之音：根本就是所有人嘛！！（飛踢
+
+如果是寫過一些前端，但只接觸過基本的 HTML、CSS、JavaScript、jQuery 部分的朋友，這系列的文章或許可以幫助你認識 Angular；如果是正在寫或曾經寫過的 Angular 的朋友，這系列的文章或許可以幫助你更了解 Angular 背後的實作方式；如果在這一方面已經是非常厲害的前輩，如果我有寫錯的地方還請拜託一定要糾正我（跪）！！
+
+每一天的文章開頭，我大概都會使用一段「奈米」故事來切入我想分享的主題。一開始可能會比較多文字敘述的部份，後面會再逐步增加實作應用的比例。
+
+其實我要說明的東西，大部分在官方的文件或是教學裡也都寫得很清楚，不過一部分是因為不少人因為官方文件都是英文、簡中文件又看的霧茫茫，所以想說自己寫一篇來推坑分享之外，另一部分是因為我想說可以來練習一下如何用自己的方式來表達。畢竟教學相長，寫得出來應該就代表我已經融會貫通了才是。
+
+總而言之，如果有任何寫的不好或者是有錯誤的地方，還請不吝指教！
+
+[Angular 深入淺出三十天] Day 01 - MPA 與 SPA
+在一個風雨交加、打雷閃電的夜晚，我正坐在電腦前專注地看著螢幕中的文章並喃喃自語著。
+
+「哇賽！才幾年沒碰 Web Front-End，怎麼前端世界變了這麼多阿？！」
+「什麼 MPA、SPA 的，真是天上一天、人間一年阿！！」
+
+拿起一旁已放涼的咖啡一口氣喝下後，便繼續埋首於「書海」中...。
+
+什麼是 MPA？
+MPA （Multi-Page Application） 指的是一般傳統 Web Front-End 開發方式。一個畫面，一個 HTML 檔案。舉例來說：
+
+<ul>
+  <li><a href="index.html">首頁</a></li>
+  <li><a href="pages/about.html">關於我們</a></li>
+  <li><a href="pages/news.html">最新消息</a></li>
+  <li><a href="pages/products.html">所有產品</a></li>
+  <li><a href="pages/contact.html">聯絡我們</a></li>
+</ul>
+假設使用者點擊「首頁」這個連結時，瀏覽器會發出一個需求到伺服器說：我需要 index.html 這個檔案的資料，然後伺服器再把 index.html 這個檔案的資料回傳給瀏覽器顯示。
+
+或者像是使用者填完表單按下送出，瀏覽器將資料送伺服器處理完後，伺服器再把接下來要呈現的 HTML 檔案回傳給瀏覽器。像是：
+
+Imgur
+
+上述看似再正常不過的流程，其實有個缺點：頁面重整。
+
+因為每個頁面都不是只有單純的 HTML 而已，還有其所需要的 CSS 與 JavaScript 檔，這些檔案都會在頁面重整的時候需要多花不少時間去下載，造成比較差的使用者體驗。
+
+什麼是SPA？
+SPA （Single-Page Application） 顧名思義，就是整個網站實際上其實只有一個頁面。
+
+為了解決上述提到的頁面重整的問題，我們可以使用 AJAX （Asynchronous JavaScript And XML，非同步的 JavaScript 與 XML） 的技術來處理，令其在送出資料且收到伺服器的回覆後，只針對需要更新的頁面元素來更新。如下圖所示：
+
+Imgur
+
+除了透過 AJAX 的方式來解決頁面重整的問題外，SPA 也有令前後端分離、提供使用者更偏向 Desktop/Mobile App 的使用者體驗等好處。
+
+不過如果 SPA 這麼好？那大家為什麼都不用 SPA 的方式來開發就好？
+
+MPA vs SPA
+黃金無足色，白璧有微瑕。求人不求備，妾願老君家。 ─ 宋‧戴復古《寄興》
+
+世界上沒有什麼事情是完美無缺的，SPA 亦然之。所以，我們來比較一下 MPA 與 SPA：
+
+MPA 優點：
+
+SEO 較好
+支援 no-script 模式
+MPA 缺點：
+
+使用者體驗較差
+前後端相依性較高
+SPA 優點：
+
+前後端分離
+使用者體驗較佳
+SPA 缺點：
+
+初次進入頁面時所需時間較久
+SEO 較差
+不支援 no-script 模式
+考慮到以上優缺點， MPA 跟 SPA 都有其各自較適合使用的情境。
+
+舉例來說：比較偏向行銷類的網站如官網、活動網站等，或許會比較推薦使用傳統 MPA 的開發方式；比較偏向內部使用的系統如出勤系統、管理系統等，或許就會比較推薦使用 SPA 的開發方式。
+
+當然也可以行銷類網站用 SPA，內部系統用 MPA，一切都看客戶、團隊或是公司怎麼選擇而已。
+
+另外，除了上述這些之外，其實也還有其他層面的優缺點，不過在此我只列出上述這幾項來比較，其他就不再贅述。
+
+參考資料
+http://www.jollen.org/blog/2014/09/single-page-application.html
+Frontend Engineering－認識 Single Page Application（SPA）
+https://docs.microsoft.com/zh-tw/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
+在傳統的 Web 應用程式和單頁應用程式（SPA）之間作選擇
+https://blog.techbridge.cc/2017/09/16/frontend-backend-mvc/
+前後端分離與SPA
+圖片來源
+https://www.c-sharpcorner.com/UploadFile/rahul4_saxena/single-page-application-spa-using-angularjs-web-api-and-m/
+Single Page Application (SPA) Using AngularJS, Web API and MVC 5
+http://oniwebblog.blogspot.com/2016/01/aspnet-mvc-web-application-dynamic.html
+ASP.NET MVC web application : Dynamic Content Load, using jQuery AJAX
+
+[Angular 深入淺出三十天] Day 02 - 為什麼是 Angular？
+「嗨！Leo！好久不見！」跟我打招呼的是 Wayne。Wayne 是我在進修時，同期的同學、專題小組成員，也是我的好朋友。
+
+「嗨！Wayne！好久不見！最近好嗎？」我笑著拍了一下他的肩膀說道。
+
+「還過得去啦！你呢？新工作還好嗎？」Wayne 跟店員點了杯咖啡後，開始關心起我的近況來。
+
+「也還 OK 囉！現在又跑回去寫前端了。」跟 Wayne 找了靠窗的座位坐下後，我說。
+
+「前端？！你是說之前學的那個嗎？」Wayne 驚呼了一聲，似乎有點訝異我會跑回去寫前端。
+
+「對，只不過現在前端的世界變化很大，光會 HTML、CSS、JavaScript 跟 jQuery 已經不夠了。」我嘴角掛著一抹高深莫測般地微笑輕輕說道。
+
+「真的假的？！願聞其詳！！」Wayne 被我這麼一說，整個好奇心都被我勾了起來，饒有興致地說道。
+
+「以前的前端......」
+
+很久很久以前
+Imgur
+
+大家都知道前端有最基本的三個元素：HTML、CSS、JavaScript。
+
+還有時代的眼淚－Flash
+
+後來，出現了當時最夯最潮大家最愛用的函式庫－jQuery。
+
+Imgur
+
+那時候的我們，大概是這樣寫前端的：
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+    <title>JS Bin</title>  
+    <script>
+      $(function(){
+        $("#name").on('keyup', function(e) {        
+          $("h1").text("Hello " + e.target.value);      
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>請輸入您的名字：</p>
+    <p><input id="name" type="text"></p>
+    <h1></h1>  
+  </body>
+</html>
+那年代的 jQuery，真的是無人不知、無人不曉，轟動武林、驚動萬教....（以下省略五萬字），它讓前端從 Flash 時代，迎來了大前端時代！
+
+又後來呢，有個東西叫做 AngularJS 的玩意兒，悄悄兒冒了出來。它寫出來大概是這樣子的：
+
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width">  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>  
+    <title>JS Bin</title>
+  </head>
+  <body ng-app>
+    <p>請輸入您的名字：</p>  
+    <p><input id="name" ng-model="name" type="text"></p>  
+    <h1>{{ "Hello " + name }}</h1>  
+  </body>
+</html>
+眼尖的朋友或許會發現一件事：咦？！怎麼沒有任何的 JavaScript 程式碼，也沒有做任何的 DOM 操作，卻有一樣的效果？！
+
+沒錯，這正是 Angular 的核心所在－數據驅動。
+
+DOM
+DOM，全名是文件物件模型 （Document Object Model） 。根據 MDN 的說明，它提供了一個結構化的表示法，並讓程式可以存取與改變文件架構、風格和內容的方法。
+
+Imgur
+
+舉例來說，我們可以透過使用 JavaScript/jQuery ，操作如上圖所示的 DOM，就可以拿到我們想要拿的文字如 My link。所以一般我們如果想要將 My link 改為 My favorite 的話，就要用上述的操作來取得並更新其文字。
+
+但 Anguar 的理念是想要透過數據綁定來消除傳統的 DOM 操作，進而減少複雜的操作以及避免錯誤的產生。
+
+當然 Angular 想做的事情也不僅僅只是數據綁定而已。其他的像是：MVC 的設計模式、依賴注入 （DI，Dependency Injection） 、完整的測試環境等等，都是 Angular 跟以往過去所有的函式庫不同的地方，Angular 想提供的其實是一個完整的開發平台，並藉此改變前端世界與開發文化。
+
+AngularJS 與 Angular
+Imgur
+
+或許有時候你會聽到別人說 AngularJS，抑或許有時候你會聽到別人說 Angular，究竟這其中到底差別在哪裡呢？
+
+一開始，的確是叫做 AngularJS 沒錯！直到後來大版號升上 2 之後，才正式將其正名為 Angular ，以便可以跟 1.x 版的 AngularJS 區分開來。而且 1.x 版的 AngularJS 其實還算是函式庫，直到 2.x 版的 Angular 出現之後，才開始能稱作是一個開發平台。怎麼說呢？其實 Angular 有提供非常多功能給開發者使用，如：
+
+i18n - 多國語系
+Animation - 動畫
+Router - 路由
+CLI - 命令列工具（超強大！）
+Material - Google 力推的 Material 網頁設計框架
+Augury - 官方出版的 Google Chrome 開發者工具
+...等等。
+
+功能太多我就不贅述了，想知道更詳細的朋友可以閱讀保哥的文章。
+https://blog.miniasp.com/post/2016/07/26/Introduction-to-Angular-2
+
+值得一提的是，Angular 是搭配 TypeScript 來開發。TypeScript 是微軟開發的程式語言，是 JavaScript 的嚴格超集（有沒有很聽不懂？！）。簡單來說，它是為了讓 JavaScript 更能夠撰寫出大型應用程式的商業邏輯所設計出來的，令其擺脫難以撰寫較複雜邏輯的窘境與大多數時候只能操作 DOM 的宿命。
+https://www.typescriptlang.org/
+
+TypeScript 其實早在 2012 年就已經上市了，但始終叫好不叫座。直到 Angular 的出現，才讓 TypeScript 開始爆炸性般地成長。關於 TypeScript，如果想知道更多可以參考 TypeScript 特色與歷史簡介 此篇文章，裡面詳細的描述了：什麼是 TypeScript？TypeScript 的歷史、為什麼選擇 TypeScript 等等。我覺得寫得非常完整且精采。
+
+感謝邦友 itsems 的提醒，TypeScript 特色與歷史簡介此篇文章已被原作者移除，故連結失效。有興趣的人可以看看筆者推薦的另一篇文章：为什么选择 TypeScript。
+https://rexdainiel.gitbooks.io/typescript/content/docs/why-typescript.html
+
+為什麼是 Angular？
+或許有人會覺得，前端其他的開發框架也很厲害阿！！究竟是為什麼會選擇看起來就很複雜的 Angular 呢？
+
+我們先來看一張有趣的圖片：
+
+Imgur
+
+沒錯！Angular 一開始的學習曲線雖然與其他框架相比高了些，畢竟它比較囉嗦，開發方式也跟傳統的開發方式大相逕庭。對於一般習慣傳統開發方式或是剛踏入前端甚至是程式領域的人來說，是滿辛苦、難以理解的。但渡過一開始的陣痛期與適應了之後，其實是會忽然有一種豁然開朗的感覺！
+
+而且正如我前面所講到，Angular 跟其他的開發框架不一樣的是，它比較像是一個完整的平台，從開發到測試它都一手包辦，並且擁有豐富的生態系，背後又有 Google 在推動，甚至就許多公司的立場而言，Angular 有完整、完善的規範與一致的開方式，這才是一個框架、一個平台真正的價值。
+
+參考資料
+文件物件模型 (DOM)
+https://developer.mozilla.org/zh-TW/docs/Web/API/Document_Object_Model
+前端工程的夢幻逸品：Angular 2 開發框架介紹
+https://blog.miniasp.com/post/2016/07/26/Introduction-to-Angular-2
+我為什麼選擇 Angular 2？
+https://www.infoq.cn/article/why-choose-angular2/
+圖片來源
+網頁新手入門：初探網頁架構和前後端語言
+https://medium.com/appworks-school/%E7%B6%B2%E9%A0%81%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80-%E5%88%9D%E6%8E%A2%E7%B6%B2%E9%A0%81%E6%9E%B6%E6%A7%8B%E5%92%8C%E5%89%8D%E5%BE%8C%E7%AB%AF%E8%AA%9E%E8%A8%80-a88a5dc86ee3
+jQuery 之 Select 設定值的方法
+http://wordpress.pwdedit.com/jquery-%E4%B9%8B-select-%E8%A8%AD%E5%AE%9A%E5%80%BC%E7%9A%84%E6%96%B9%E6%B3%95/
+DOM (文件物件模型)
+Moving from AngularJS to Angular: the overview of the two frameworks
+https://justcoded.com/blog/moving-from-angularjs-to-angular-the-overview-of-the-two-frameworks/
+Web Developer Roadmap -2018
+https://github.com/kamranahmedse/developer-roadmap
+
+[Angular 深入淺出三十天] Day 03 - 開發工具與環境建置
+「原來如此！好像很厲害！！」聽完我的介紹後，Wayne 一副饒有興致的樣子。
+
+「對呀！想不想學阿？！我教你！」看到 Wayne 這麼有興趣，當然就是要趁勢推他入坑啦，嘿嘿。
+
+「好阿！那我們要從哪裡開始？」Wayne 邊說邊從他的背包裡拿出他的電腦。
+
+「那就先從環境架設開始吧！我跟你說...」
+
+Node.js 與 NPM
+以前的前端套件大多數是函式庫的形式，每次引用的時候都是將事先到官網下載好的檔案引入，或是直接引入線上的連結。像是：
+https://nodejs.org/en/
+
+<!-- 線上連結 -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<!-- 檔案 -->
+<script src="assets/js/lib/jquery.min.js"></script>
+而在 Node.js 與其套件管理系統 NPM （Node Package Manager） 的蓬勃發展下，現今的前端框架已大多是基於這套系統的架構上開發 （其他的套件本版管理系統如 yarn，但本系列文不會特別介紹） ，Angular 也不例外。所以首先要做的事就是先到官網下載並安裝 （本系列文分享的是最簡單的安裝方式） 。
+
+Imgur
+
+到了官網之後會看到如上圖所示的兩顆按鈕。LTS 是大多數人都在使用的版本；Current 則是目前最新的版本。點擊 LTS 的按鈕下載，然後一直按「下一步」即可。
+
+安裝完成之後要怎麼檢查是否已經確實安裝完成呢？開啟你的終端機或命命列提示工具（找不到或不知道的朋友再麻煩你自行 Google），輸入：
+
+node -v
+如果輸入完有印出類似下圖的版本資訊，就表示你的電腦已經將 Node.js 裝好囉！ （其實安裝之前也可以先試著輸入看看，搞不好你的電腦已經安裝過了，只是你不知道而已） 。
+
+Imgur
+
+裝完 Node.js 之後，接下來要裝的就是 NPM 了！等等，其實安裝 Node.js 的時候，其實也一併把 NPM 安裝好了 （Node.js 0.6.3 版之後就將 NPM 內建了） ！要怎麼檢查是否已經確實安裝完成呢？跟 Node.js 的檢查方式類似，輸入：
+
+npm -v
+跟 Node.js 一樣，有看到類似下圖的版本資訊就表示你的電腦也已經將 NPM 裝好囉！
+
+Imgur
+
+Angular CLI
+Angular CLI 是 Angular 的命令列工具。雖說是工具，但我個人覺得，如果 Angular 沒有了它，Angular 都不 Angular 了！
+
+還記得我剛剛開始接觸 AngularJS 以及相關環境建置的套件如 Webpack、Gulp、Karma、Protractor 的時候，光是將這些東西組裝起來，令其能夠在我改了程式碼之後自動刷新頁面、下了指令可以幫我將程式碼打包起來等等這些事情，就讓我足足花了一個禮拜的時間才完成！ （對不起我太遜了，嗚嗚！） 那時我心裡還想說：哇靠！前端怎麼變得這麼難？！這下腫了。直到我遇見了 Angular CLI 才知道，原來這一切其實可以這麼簡單！
+
+事不宜遲，讓我們趕快來安裝 Angular CLI 吧！！安裝的方式非常簡單，在終端機中輸入以下指令：
+
+npm install -g @angular/cli
+等它跑完就安裝完成囉！！想要檢查是否有確實安裝完成的話，一樣在終端機中輸入：
+
+ng -v
+如果終端機有印出類似下圖的版本資訊，那代表 Angular CLI 也已經安裝完成囉！我們可以開始建立我們第一個 Angular 專案了！！
+
+Imgur
+
+如果讀者輸入 ng -v 沒有看到類似上圖的版本資訊的話，請改為輸入 ng version 或是 ng v ， ng -v 這個指令已在某個版本移除了（貌似是 Angular 7）
+
+在開始建立前，建議先將你終端機的當前目錄移動到你想要的位置之後，再輸入以下指令：
+
+ng new HelloAngular
+輸入完之後，一樣讓子彈飛一陣子，等它跑完之後，先輸入以下指令進入我們剛剛新建的專案目錄裡：
+
+cd HelloAngular
+接著再輸入：
+
+ng serve
+一樣等它跑完之後，打開瀏覽器並在網址列輸入 localhost:4200 後，應該會看到類似下圖的畫面。
+
+Imgur
+
+當你看到這個畫面時，恭喜！！你就成功安裝完環境並建立了第一個 Angular 專案！！有沒有一種「我根本沒有做什麼事阿？！從安裝 Node.js 開始，我只打了七行指令而已耶？！」的感覺？！
+
+沒錯！！這就是 Anuglar 想要讓你知道的事，環境與專案的建置就是這麼簡單！！當我建立完我第一個 Angular 專案的時候，我只有一個念頭：
+
+「我之前花的那一個禮拜究竟是為了什麼？！」
+
+VSCode
+專案建立好了，接下來要開始 Coding 了！！我好興奮阿！！！！！
+
+等一下！Coding 前沒有趁手的編輯器怎麼行呢？雖然很多人都已經有在用像是 Notepad++ 、 Sublime、Atom 等等之類的純文字編輯器，但我還是要推一下微軟推出的這套編輯器：VSCdoe （Visual Studio Code） 。至於我為什麼推薦用 VSCode 呢？其實很多人都有寫過推坑的文章如：
+
+新一代的編輯器 — VSCode
+為什麼我從 Sublime Text 跳槽 Visual Studio Code？
+所以在此我就不再贅述，趕快下載來用就對了！！
+
+安裝完 VSCode 之後，一定要去下載一個叫做 Angular Extension Pack 的擴充套件。這個擴充套件是 Will 保哥將很多好用的 Angular 相關擴充套件都整合進一個擴充套件裡，只要安裝一個套件就能連帶安裝好其他相關套件，方便又好用！！
+
+Augury
+最後要安裝的工具叫做 Augury 。
+
+我在上一篇文章有提到過，Augury 是 Angular 官方出版的開發者工具，透過 Chrome 或是 Firefox 的擴充功能來安裝。這套工具可以幫我們分析頁面中所用元件的狀態與方法。
+
+安裝方式也很簡單，以 Chrome 來說，只要到線上應用程式商店之後，選擇擴充功能，在搜尋的文字框中輸入 Augury，即可找到並安裝。
+
+Imgur
+
+安裝完之後，就可以在瀏覽器的開發者工具裡看到 Augury 的標籤，並且透過 Augury 看到應用程式目前的狀態：
+
+Imgur
+
+如果有看到類似上圖的畫面，就表示 Augury 已經確實安裝完成囉！
+
+錯誤更新記錄
+2019/05/28 11:20 - 非常感謝邦友 SuperMike 的提醒，增加 Angular Cli 指令的補充說明。

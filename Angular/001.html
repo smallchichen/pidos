@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+    <title>JS Bin</title>  
+    <script>
+      $(function(){
+        $("#name").on('keyup', function(e) {        
+          $("h1").text("Hello " + e.target.value);      
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>請輸入您的名字：</p>
+    <p><input id="name" type="text"></p>
+    <h1></h1>  
+  </body>
+</html>
