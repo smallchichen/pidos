@@ -13,12 +13,14 @@ position：Backend engineer in four month
 <pre>
 1.Oracle
 2.IBM(db2)
+3.MySQL
 </pre>
 * 二、Java
 <pre>
 1.Simple_Spring
 2.Simple_Hibernate
 3.Simple_JDBC
+1.Simple_Spring-boot (MySQL)
 </pre>
 * 三、System
 <pre>
