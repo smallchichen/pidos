@@ -3,17 +3,101 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-	<!-- dao 实例 -->
+	<!-- 攔截器物件 -->
+	<bean id="methodBeforeAdviceImpl"
+		class="com.helloweenvsfei.spring.example.MethodBeforeAdviceImpl">
+	</bean>
+
+	<!-- 配置攔截器。用的是Spring的元件 -->
+	<bean id="theAdvisor"
+		class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<!-- 攔截器对象 -->
+		<property name="advice" ref="methodBeforeAdviceImpl" />
+		<!-- 攔截所有的方法 -->
+		<property name="mappedName" value="*"></property>
+	</bean>
+
+	<!-- dao 實例 -->
 	<bean id="daoImpl"
 		class="com.helloweenvsfei.spring.example.DaoImpl">
 	</bean>
 
-	<bean id="service"
+	<bean id="serviceImpl"
 		class="com.helloweenvsfei.spring.example.ServiceImpl">
 		<property name="dao" ref="daoImpl"></property>
 	</bean>
 
+	<bean id="service"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 攔截器 -->
+		<property name="interceptorNames" value="theAdvisor"></property>
+		<!-- 被攔截的对象 -->
+		<property name="target" ref="serviceImpl" />
+	</bean>
 
 
+	<!-- 攔截器 在 withAop() 方法前运行 -->
+	<bean id="aopMethodBeforeInterceptor"
+		class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice">
+			<bean
+				class="com.helloweenvsfei.spring.aop.MethodBeforeInterceptor" />
+		</property>
+		<property name="mappedName" value="withAop"></property>
+	</bean>
+
+	<!-- 攔截器 在 withAop() 返回後運行 -->
+	<bean id="aopMethodAfterInterceptor"
+		class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice">
+			<bean
+				class="com.helloweenvsfei.spring.aop.MethodAfterInterceptor" />
+		</property>
+		<property name="mappedName" value="withAop"></property>
+	</bean>
+
+	<!-- 攔截器 在異常抛出後運行 -->
+	<bean id="aopThrowsInterceptor"
+		class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice">
+			<bean class="com.helloweenvsfei.spring.aop.ThrowsInterceptor" />
+		</property>
+		<property name="mappedName" value="withAop"></property>
+	</bean>
+
+	<bean id="aopService"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 攔截器 -->
+		<property name="interceptorNames">
+			<list>
+				<value>aopMethodBeforeInterceptor</value>
+				<value>aopMethodAfterInterceptor</value>
+				<value>aopThrowsInterceptor</value>
+			</list>
+		</property>
+		<!-- 被攔截的对象 -->
+		<property name="target">
+			<bean class="com.helloweenvsfei.spring.aop.AopServiceImpl">
+				<!-- <property name="name">
+					<null />
+				</property> -->
+				<property name="name" value="Helloween"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="{jdbc.driverClassName}" />
+		<property name="url" value="{jdbc.url}" />
+		<property name="username" value="{jdbc.username}" />
+		<property name="password" value="{jdbc.password}" />
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer ">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
 
 </beans>

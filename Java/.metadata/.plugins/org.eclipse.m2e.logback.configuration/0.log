@@ -1055,3 +1055,25 @@
 2020-03-23 00:16:02,887 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 125 resources
 2020-03-23 00:16:02,977 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-03-23 00:16:02,977 [Worker-47: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\spring-boot-2020\src\test\resources
+2020-03-26 21:18:36,388 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2020-03-26 21:41:14,132 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 21:41:14,134 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\leetcode\src\main\resources
+2020-03-26 21:41:14,136 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 21:41:14,136 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\leetcode\src\test\resources
+2020-03-26 22:03:45,051 [Worker-38: Cleaning all projects] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for spring-boot-2020
+2020-03-26 22:03:46,073 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 22:03:46,073 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\LineApi\src\main\resources
+2020-03-26 22:03:46,075 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 22:03:46,075 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\LineApi\src\test\resources
+2020-03-26 22:03:47,882 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 22:03:47,882 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\leetcode\src\main\resources
+2020-03-26 22:03:47,883 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 22:03:47,884 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\leetcode\src\test\resources
+2020-03-26 22:03:53,182 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 22:03:53,246 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-03-26 22:03:53,318 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 125 resources
+2020-03-26 22:03:57,006 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-03-26 22:03:57,007 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\PiGod\Desktop\Git_test\pidos\Java\spring-boot-2020\src\test\resources
+2020-03-26 22:03:57,007 [Worker-28: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of spring-boot-2020
+2020-03-26 22:03:57,008 [Worker-28: Building] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for spring-boot-2020
+2020-03-26 22:03:57,179 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
